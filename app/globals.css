@@ -170,6 +170,7 @@ body {
   height: 7px;
   border-radius: 50%;
   background: var(--faint);
+  flex-shrink: 0;
 }
 
 .status-pill.on .status-dot {
@@ -185,6 +186,7 @@ body {
   display: flex;
   align-items: center;
   gap: 8px;
+  min-width: 0;
 }
 
 select,
@@ -203,11 +205,18 @@ select,
 select {
   padding: 6px 10px;
   max-width: 220px;
+  min-width: 0;
+  text-overflow: ellipsis;
 }
 
 .btn-ghost {
   padding: 6px 12px;
   cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  white-space: nowrap;
+  flex-shrink: 0;
 }
 
 select:hover,
@@ -621,7 +630,73 @@ textarea::placeholder {
     gap: 14px;
     justify-content: flex-start;
   }
-  .brand-text {
+
+  .bar {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    row-gap: 10px;
+  }
+
+  .brand {
+    flex: 1 1 auto;
+    min-width: 0;
+  }
+
+  .logo-dot {
+    width: 30px;
+  }
+
+  .bar h1 {
+    font-size: 13.5px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .status-pill {
+    flex-shrink: 0;
+  }
+
+  .status-label {
+    display: none;
+  }
+
+  .status-pill {
+    padding: 6px;
+    border-radius: 50%;
+  }
+
+  .grow {
+    display: none;
+  }
+
+  .toolbar {
+    order: 3;
+    flex: 1 0 100%;
+    gap: 8px;
+  }
+
+  .toolbar select {
+    flex: 1 1 auto;
+    max-width: none;
+    min-width: 0;
+  }
+
+  .btn-label {
+    display: none;
+  }
+
+  .btn-ghost {
+    width: 32px;
+    height: 32px;
+    padding: 0;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+}
+
+@media (max-width: 380px) {
+  .subtitle {
     display: none;
   }
 }

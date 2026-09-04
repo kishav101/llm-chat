@@ -134,6 +134,14 @@ function XIcon() {
   );
 }
 
+function TrashIcon() {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+      <path d="M3 6h18M8 6V4a2 2 0 012-2h4a2 2 0 012 2v2m3 0l-1 14a2 2 0 01-2 2H7a2 2 0 01-2-2L4 6h16z" />
+    </svg>
+  );
+}
+
 function FileIcon() {
   return (
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -499,7 +507,7 @@ export default function Page() {
         </div>
         <span className={`status-pill ${connected ? "on" : ""}`}>
           <span className="status-dot" />
-          {connected ? "connected" : "no model"}
+          <span className="status-label">{connected ? "connected" : "no model"}</span>
         </span>
         <span className="grow" />
         <div className="toolbar">
@@ -523,8 +531,9 @@ export default function Page() {
           >
             {theme === "dark" ? <SunIcon /> : <MoonIcon />}
           </button>
-          <button className="btn-ghost" type="button" onClick={reset}>
-            Clear chat
+          <button className="btn-ghost" type="button" onClick={reset} aria-label="Clear chat" title="Clear chat">
+            <TrashIcon />
+            <span className="btn-label">Clear chat</span>
           </button>
         </div>
       </header>
